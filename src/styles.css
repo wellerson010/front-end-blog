@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.centralize {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container-header {
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.container {
+    flex: 1;
+}
+
+.title-blog {
+    font-size: 50px;
+    color: #fff;
+}
+
+.sub-title-blog {
+    font-size: 20px;
+    color: #ccc;
+}

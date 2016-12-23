@@ -1,0 +1,86 @@
+#container-header.mid, .container-header-mid-image, .container-header-mid-background {
+    height: 50vh;
+}
+
+    #container-header.mid .title-blog, #container-header.mid .sub-title-blog {
+        width: 100%;
+        text-align: center;
+    }
+ 
+.container-header-mid-background, .container-header-mid-image {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.container-header-mid-background{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+        z-index: -1;
+}
+
+.container-header-mid-image {
+    z-index: -2;
+    object-fit: cover;
+}
+
+.container-post-inside {
+    padding-top: 50px;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.post p {
+    margin: 30px 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.post img {
+    display: block;
+    margin: 12px auto;
+    max-width: 100%;
+}
+
+.post li {
+    position: relative;
+    left: 20px;
+    margin-bottom: 5px;
+    list-style: disc;
+    color: #555;
+}
+
+.post a {
+    color: #0080f3;
+}
+
+    .post a:hover {
+        text-decoration: underline;
+    }
+
+.post h1, .post h2, .post h3, .post h4, .post h5 {
+    margin: 12px 0 5px;
+    color: #555;
+}
+
+blockquote {
+    background: #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+    blockquote p {
+        margin: 0 !important;
+        text-indent: 0 !important;
+    }
+
+pre {
+    margin-bottom: 15px;
+}

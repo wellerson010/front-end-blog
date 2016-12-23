@@ -1,0 +1,8 @@
+<header>
+    <div id="container-header" class="mid" *ngIf="post">
+            <div class="container-header-mid-background"></div>
+            <img class="container-header-mid-image" [src]="post.img_url">
+            <h1 class="title-blog">{{post.title}}</h1>
+            <h1 class="sub-title-blog">{{post.published_date | dateToStringPipe}}</h1>
+    </div>
+</header>

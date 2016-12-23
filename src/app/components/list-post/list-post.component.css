@@ -1,0 +1,148 @@
+#container-header{
+    height: 100vh;
+    background-image: url(https://github.com/wellerson010/blog/blob/master/img/background.jpg?raw=true);
+}
+
+.container-scroll-down {
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.span-blog-scroll {
+    color: #fff;
+    font-size: 21px;
+    position: relative;
+    top: 14px;
+}
+
+.img-blog-scroll {
+    width: 70px;
+    margin: 0 auto;
+    display: block;
+}
+
+.blog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.post-preview {
+    width: calc(100% / 3);
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+}
+
+    .post-preview a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+
+.post-preview-title {
+    font-size: 22px;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+
+.post-preview-content {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: background .5s;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-preview-hidden {
+    pointer-events: none;
+    height: 0;
+    transition: height 1s;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+.post-container-preview {
+    display: block;
+    height: 100%;
+}
+
+.post-preview-category-container {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    color: #fff;
+    transition: transform 1s;
+    padding: 10px;
+}
+
+.post-preview-date {
+    margin-bottom: 5px;
+    display: block;
+    font-size: 13px;
+}
+
+.post-preview:hover .post-preview-content {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.post-preview:hover .post-preview-hidden {
+    height: 200px;
+}
+
+.post-preview:hover .post-preview-category-container {
+    transform: translateY(-100%);
+}
+
+.post-preview-category-container a {
+    padding: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    background: rgba(5, 17, 53, 0.8);
+    border-radius: 4px;
+    transition: background .5s;
+}
+
+#container-loading-more {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+    #container-loading-more img {
+        width: 32px;
+    }
+
+    #container-loading-more.active{
+        opacity: 1;
+    }
+
+@media screen and (max-width: 900px) {
+    .post-preview {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .post-preview {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .post-preview {
+        width: 100%;
+    }
+}

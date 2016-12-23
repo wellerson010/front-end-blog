@@ -2,19 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import {DatePipe} from './pipe/date.pipe';
 
-import { AppComponent } from './app.component';
+import {components, routes} from './routes';
+import {HttpService} from './services/http.service';
+import {MainComponent} from './components/main/main.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    MainComponent,
+    DatePipe,
+    ...components
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes),
+    InfiniteScrollModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [HttpService],
+  bootstrap: [MainComponent]
 })
 export class AppModule { }
