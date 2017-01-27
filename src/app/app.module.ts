@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import {DatePipe} from './pipe/date.pipe';
 
+import {HighlightDirective} from './directives/highlight/highlight.directive';
 import {components, routes} from './routes';
 import {HttpService} from './services/http.service';
 import {MainComponent} from './components/main/main.component';
@@ -14,6 +15,7 @@ import {MainComponent} from './components/main/main.component';
   declarations: [
     MainComponent,
     DatePipe,
+    HighlightDirective,
     ...components
   ],
   imports: [

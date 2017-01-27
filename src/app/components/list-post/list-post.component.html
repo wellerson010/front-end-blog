@@ -25,7 +25,7 @@
 
                     <div class="post-preview-hidden">
                         <span class="post-preview-date">{{post.published_date | dateToStringPipe}}</span>
-                        <div class="post-preview-brief">{{post.summary_html}}</div>
+                        <div class="post-preview-brief" [innerHTML]="post.summary_html"></div>
                     </div>
                 </div>
             </a>

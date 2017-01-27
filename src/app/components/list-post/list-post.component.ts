@@ -30,7 +30,7 @@ export class ListPostComponent implements OnInit {
     }
 
     scrollInfinite() {
-        if (!this.isLoadingMorePost) {
+        if (!this.isLoadingMorePost && this.posts) {
             this.isLoadingMorePost = true;
             this.httpService.getPosts(this.posts.length, 6).then(data => {
                 this.isLoadingMorePost = false;
