@@ -19,6 +19,7 @@
         <div class="post-preview" *ngFor="let post of posts" [style.background-image]="buildBackgroundImageFromPost(post)">
             <a routerLink="/blog/{{post.key_url}}" class="post-container-preview">
                 <div class="post-preview-content">
+                    
                     <h2 class="post-preview-title">
                         {{post.title}}
                     </h2>

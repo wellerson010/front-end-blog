@@ -22,7 +22,6 @@ export class ListPostComponent implements OnInit {
     ngOnInit(): void {
         this.httpService.getPosts(0, 12).then(data => {
             this.posts = data;
-            console.log(this.posts);
         })
     }
 

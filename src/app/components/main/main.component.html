@@ -1,50 +1,59 @@
-<menu id="menu" [class.sticky]="menuSticky" (window:scroll)="scroll($event)" #menu>
-    <div class="container-menu">
-        <div id="container-menu-pc">
-            <ul id="menu-left">
-                <li>
-                    <a routerLink="/" class="logo-menu">Wellerson Roberto</a>
-                </li>
-                <li>
-                    <a href="http://www.wellerson.com.br" target="_blank">Eu</a>
-                </li>
-                <li>
-                    <a routerLink="/" id="main-tags">Categorias</a>
-                </li>
-            </ul>
-            <div id="menu-right">
-                <div class="container-search">
-                    <img src="assets/images/search.svg" id="main-menu-search" (click)="changeTextSearchMode(txtSearch)"/>
-                    <input class="txt-search" [class.active]="textSearchActive" #txtSearch>
-                </div>
-            </div>
-        </div>
+﻿
 
-        <div id="container-menu-mobile">
-            <div class="container-logo-mobile">
-                <a href="/" class="logo-menu">Wellerson Roberto</a>
-            </div>
-            <div>
-                <a href="/"><img src="assets/images/user.svg"></a>
-            </div>
-            <div>
-                <a href="/"><img src="assets/images/tag.svg"></a>
-            </div>
-            <div id="container-search-mobile">
-                <img src="assets/images/search.svg">
-            </div>
-            <div id="container-input-search-mobile">
-                <input class="txt-search-mobile">
-            </div>
+<div class="loading-overlay" *ngIf="!loading">
+    <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->
+    <img src="assets/images/loader.svg">
+</div>
+
+<menu id="menu" [class.sticky]="menuSticky" (window:scroll)="scroll($event)" #menu>
+  <div class="container-menu">
+    <div id="container-menu-pc">
+      <ul id="menu-left">
+        <li>
+          <a routerLink="/" class="logo-menu">Wellerson Roberto</a>
+        </li>
+        <li>
+          <a href="http://www.wellerson.com.br" target="_blank">Eu</a>
+        </li>
+        <li>
+          <a routerLink="/" id="main-tags">Categorias</a>
+        </li>
+      </ul>
+      <div id="menu-right">
+        <div class="container-search">
+          <img src="assets/images/search.svg" id="main-menu-search" (click)="changeTextSearchMode(txtSearch)" />
+          <input class="txt-search" [class.active]="textSearchActive" #txtSearch (keyup.enter)="search(txtSearch.value)">
         </div>
+      </div>
     </div>
+    <div id="container-menu-mobile">
+      <div class="container-logo-mobile">
+        <a href="/" class="logo-menu">Wellerson Roberto</a>
+      </div>
+      <div>
+        <a href="/"><img src="assets/images/user.svg"></a>
+      </div>
+      <div>
+        <a href="/"><img src="assets/images/tag.svg"></a>
+      </div>
+      <div id="container-search-mobile">
+        <img src="assets/images/search.svg">
+      </div>
+      <div id="container-input-search-mobile">
+        <input class="txt-search-mobile">
+      </div>
+    </div>
+  </div>
 </menu>
 
-<router-outlet #router></router-outlet>
 
-<div class="container-footer">
-    <div id="footer">
-    <p>Feito com Node.js, Angular 2, Postgres</p>.
-    <p> Ícones por <a href="http://www.flaticon.com/" target="_blank">FlatIcon</a> <img src="/images/heart.svg" class="footer-heart-icon"/><p>
-        </div>
-</div>
+<router-outlet #router></router-outlet>
+<footer class="container-footer">
+  <div class="footer">
+    <p>Feito com Node.js, Angular 2, PostgreSQL</p>
+    <p>
+      Ícones por <a href="http://www.flaticon.com/" target="_blank" class="link-flaticon">FlatIcon</a>
+      <img src="assets/images/heart.svg" class="footer-heart-icon" />
+    <p>
+  </div>
+</footer>
