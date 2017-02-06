@@ -9,6 +9,7 @@ import {DatePipe} from './pipe/date.pipe';
 import {HighlightDirective} from './directives/highlight/highlight.directive';
 import {components, routes} from './routes';
 import {HttpService} from './services/http.service';
+import {LoadingControlService} from './services/loading-control.service';
 import {MainComponent} from './components/main/main.component';
 
 @NgModule({
@@ -25,7 +26,7 @@ import {MainComponent} from './components/main/main.component';
     RouterModule.forRoot(routes),
     InfiniteScrollModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, LoadingControlService],
   bootstrap: [MainComponent]
 })
 export class AppModule { }

@@ -159,10 +159,11 @@
     right: 0;
     top: 0;
     background: rgba(0,0,0,.7);
+    z-index: 99;
   }
 
   .loading-overlay img{
-      width: 48px;
+    width: 48px;
     position: fixed;
     left: 50%;
     top: 50%;
