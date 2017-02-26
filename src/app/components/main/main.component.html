@@ -22,7 +22,7 @@
       <div id="menu-right">
         <div class="container-search">
           <img src="assets/images/search.svg" id="main-menu-search" (click)="changeTextSearchMode(txtSearch)" />
-          <input class="txt-search" [class.active]="textSearchActive" #txtSearch (keyup.enter)="search(txtSearch.value)">
+          <input placeholder="Buscar posts" class="txt-search" [class.active]="textSearchActive" #txtSearch (keyup.enter)="search(txtSearch.value)">
         </div>
       </div>
     </div>

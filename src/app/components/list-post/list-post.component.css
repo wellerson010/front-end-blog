@@ -91,6 +91,7 @@
 
 .post-preview:hover .post-preview-hidden {
     height: 200px;
+    pointer-events: auto;
 }
 
 .post-preview:hover .post-preview-category-container {

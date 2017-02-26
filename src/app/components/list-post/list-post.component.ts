@@ -16,6 +16,7 @@ export class ListPostComponent implements OnInit {
     posts: Array<Post>;
     postsToLoadByScroll = 6;
     searchParam = '';
+    searchCategoryParam = '';
 
 
     constructor(private httpService: HttpService,
@@ -32,7 +33,9 @@ export class ListPostComponent implements OnInit {
     ngOnInit(): void {
         this.activatedRoute.queryParams.subscribe((queryParams: Params) => {
             this.searchParam = queryParams['search'];
-            this.httpService.getPosts(0, this.initialPostsToLoad, this.searchParam).then(data => {
+            this.searchCategoryParam = queryParams['category'];
+
+            this.httpService.getPosts(0, this.initialPostsToLoad, this.searchParam, this.searchCategoryParam).then(data => {
 
                 this.allPostsLoaded = false
                 this.allPostsLoaded = (data.length < this.initialPostsToLoad);
@@ -50,7 +53,7 @@ export class ListPostComponent implements OnInit {
     scrollInfinite() {
         if (!this.allPostsLoaded && !this.isLoadingMorePost && this.posts) {
             this.isLoadingMorePost = true;
-            this.httpService.getPosts(this.posts.length, this.postsToLoadByScroll).then(data => {
+            this.httpService.getPosts(this.posts.length, this.postsToLoadByScroll, this.searchParam, this.searchCategoryParam).then(data => {
                 this.allPostsLoaded = (data.length < this.postsToLoadByScroll);
 
                 this.isLoadingMorePost = false;

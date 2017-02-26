@@ -9,13 +9,17 @@ import 'rxjs/add/operator/toPromise';
 export class HttpService {
     constructor(private http: Http) { }
 
-    getPosts(skip:number = 0, limit:number = 0, search: string = ''): Promise<Post[]> {
+    getPosts(skip:number = 0, limit:number = 0, search: string = '', category: string = ''): Promise<Post[]> {
         let urlParams = new URLSearchParams();
         urlParams.set('skip', skip.toString());
         urlParams.set('limit', limit.toString());
 
         if (search){
             urlParams.set('search', search);
+        }
+
+        if (category){
+            urlParams.set('category', category);
         }
 
         let url = Config.urlApi + '/public/posts';

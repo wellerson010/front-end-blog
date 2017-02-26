@@ -27,6 +27,10 @@
                     <div class="post-preview-hidden">
                         <span class="post-preview-date">{{post.published_date | dateToStringPipe}}</span>
                         <div class="post-preview-brief" [innerHTML]="post.summary_html"></div>
+
+                        <div class="post-preview-category-container" *ngIf="post.categories.length > 0">
+                            <a *ngFor="let category of post.categories" routerLink="/list" [queryParams]="{category: category.key_url}">{{category.title}}</a>
+                        </div>
                     </div>
                 </div>
             </a>
