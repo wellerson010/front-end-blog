@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlApi: 'http://api.wellerson.com.br'
 };
