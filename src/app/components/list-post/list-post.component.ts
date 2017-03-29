@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { Post } from '../../model/post';
+import {Category} from '../../model/category';
 import { LoadingControlService } from '../../services/loading-control.service';
 
 
@@ -21,7 +22,8 @@ export class ListPostComponent implements OnInit {
 
     constructor(private httpService: HttpService,
         private loadingControl: LoadingControlService,
-        private activatedRoute: ActivatedRoute) { }
+        private activatedRoute: ActivatedRoute,
+        private router: Router) { }
 
     buildBackgroundImageFromPost(post: Post) {
         if (post.img_url) {
@@ -60,6 +62,14 @@ export class ListPostComponent implements OnInit {
                 this.posts.splice(this.posts.length, 0, ...data);
             })
         }
+    }
+
+    toCategory(category:Category){
+        this.router.navigate(['/list' ], {
+            queryParams: {
+                category: category.key_url
+            }
+        })
     }
 
 }

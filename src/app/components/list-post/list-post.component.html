@@ -10,16 +10,13 @@
     </div>
 </header>
 
-<div class="container-posts" infinite-scroll
-           infinite-scroll
-            [infiniteScrollDistance]="1"
-            [infiniteScrollThrottle]="500"
-            (scrolled)="scrollInfinite()">
+<div class="container-posts" infinite-scroll infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="500"
+    (scrolled)="scrollInfinite()">
     <div class="blog">
         <div class="post-preview" *ngFor="let post of posts" [style.background-image]="buildBackgroundImageFromPost(post)">
             <a routerLink="/blog/{{post.key_url}}" class="post-container-preview">
                 <div class="post-preview-content">
-                    
+
                     <h2 class="post-preview-title">
                         {{post.title}}
                     </h2>
@@ -27,18 +24,17 @@
                     <div class="post-preview-hidden">
                         <span class="post-preview-date">{{post.published_date | dateToStringPipe}}</span>
                         <div class="post-preview-brief" [innerHTML]="post.summary_html"></div>
-
-                        <div class="post-preview-category-container" *ngIf="post.categories.length > 0">
-                            <a *ngFor="let category of post.categories" routerLink="/list" [queryParams]="{category: category.key_url}">{{category.title}}</a>
-                        </div>
                     </div>
                 </div>
             </a>
+
+            <div class="post-preview-category-container" *ngIf="post.categories.length > 0">
+                <a *ngFor="let category of post.categories" routerLink="/list" [queryParams]="{category: category.key_url}">{{category.title}}</a>
+            </div>
         </div>
     </div>
 </div>
 
 <div id="container-loading-more" [class.active]="isLoadingMorePost">
-    <img src="assets/images/loader.svg"/>
+    <img src="assets/images/loader.svg" />
 </div>
-

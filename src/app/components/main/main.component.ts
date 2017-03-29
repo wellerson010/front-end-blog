@@ -9,6 +9,7 @@ import {
 
 import {LoadingControlService} from '../../services/loading-control.service';
 import {HttpService} from '../../services/http.service';
+import { Category } from '../../model/category';
 
 @Component({
     selector: 'app-root',
@@ -16,12 +17,17 @@ import {HttpService} from '../../services/http.service';
     styleUrls: ['main.component.css']
 })
 export class MainComponent {
+    categories = new Array<Category>();
+
     loading = true;
     textSearchActive = false;
     menuSticky = false;
+    isCategoriesLoading = false;
+    isMenuCategoryOpened = false;
     @ViewChild('menu') menu: ElementRef;
 
     constructor(private router: Router,
+    private httpService: HttpService,
     private loadingControlService: LoadingControlService) {
         router.events.subscribe((event: RouterEvent) => {
             this.navigationEvents(event);
@@ -46,6 +52,18 @@ export class MainComponent {
         else if (event instanceof NavigationCancel || event instanceof NavigationError) {
             this.loading = false;
         }
+    }
+
+    openMenuCategories(): void{
+        if (!this.isCategoriesLoading && this.categories.length == 0){
+            this.isCategoriesLoading = true;
+            this.httpService.getCategories().then(categories => {
+                this.categories = categories;
+                console.log(this.categories);
+                this.isCategoriesLoading = false;
+            });
+        }
+        this.isMenuCategoryOpened = !this.isMenuCategoryOpened;
     }
 
     search(text: string): void {

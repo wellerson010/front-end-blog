@@ -15,9 +15,16 @@
         <li>
           <a href="http://www.wellerson.com.br" target="_blank">Eu</a>
         </li>
-      <!--  <li>
-          <a routerLink="/" id="main-tags">Categorias</a>
-        </li> -->
+       <li class="container-item-category">
+          <span class="item-menu" (click)="openMenuCategories()">Categorias</span>
+          <div [hidden]="!isMenuCategoryOpened" class="container-menu-category">
+                <img [hidden]="!isCategoriesLoading" src="assets/images/loader.svg">
+
+                <div class="content-menu-category">
+                  <a *ngFor="let category of categories" routerLink="/list" [queryParams]="{category: category.key_url}">{{category.title}}</a>
+                </div>
+          </div>
+        </li> 
       </ul>
       <div id="menu-right">
         <div class="container-search">
